@@ -186,6 +186,7 @@ class SDWAModifiers(Container):
 class VOP3PModifiers(Container):
     op_sel:     Optional[List[int]] = None
     op_sel_hi:  Optional[List[int]] = None
+    byte_sel:   Optional[List[int]] = None
 
     def __post_init__(self):
         super().__init__()
@@ -196,6 +197,8 @@ class VOP3PModifiers(Container):
             l.append("op_sel:" + str(self.op_sel).replace(" ", ""))
         if self.op_sel_hi != None:
             l.append("op_sel_hi:" + str(self.op_sel_hi).replace(" ", ""))
+        if self.byte_sel != None:
+            l.append("byte_sel:" + str(self.byte_sel).replace(" ", ""))
         return l
 
     def __str__(self) -> str:
@@ -204,6 +207,8 @@ class VOP3PModifiers(Container):
             kStr += " op_sel:" + str(self.op_sel).replace(" ", "")
         if self.op_sel_hi != None:
             kStr += " op_sel_hi:" + str(self.op_sel_hi).replace(" ", "")
+        if self.byte_sel != None:
+            kStr += " byte_sel:" + str(self.byte_sel).replace(" ", "")
         return kStr
 
 class EXEC(Container):
